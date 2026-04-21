@@ -743,6 +743,22 @@ const AP_Param::GroupInfo AP_OSD_Screen::var_info[] = {
     // @Range: 0 21
     AP_SUBGROUPINFO(gps_time, "GPSTIME", 44, AP_OSD_Screen, AP_OSD_Setting),
 
+    // @Param: BOOTTIME_EN
+    // @DisplayName: BOOTTIME_EN
+    // @Description: Displays system uptime (time since boot) with milliseconds
+    // @Values: 0:Disabled,1:Enabled
+
+    // @Param: BOOTTIME_X
+    // @DisplayName: BOOTTIME_X
+    // @Description: Horizontal position on screen
+    // @Range: 0 59
+
+    // @Param: BOOTTIME_Y
+    // @DisplayName: BOOTTIME_Y
+    // @Description: Vertical position on screen
+    // @Range: 0 21
+    AP_SUBGROUPINFO(boot_time, "BOOTTIME", 63, AP_OSD_Screen, AP_OSD_Setting),
+
 #if HAL_OSD_SIDEBAR_ENABLE || HAL_MSP_ENABLED
     // @Param: SIDEBARS_EN
     // @DisplayName: SIDEBARS_EN
@@ -2478,6 +2494,20 @@ void AP_OSD_Screen::draw_gps_time(uint8_t x, uint8_t y)
     backend->write(x, y, false, "%c%02u:%02u:%02u.%03u", SYMBOL(SYM_CLK), hour, min, sec, ms);
 }
 
+void AP_OSD_Screen::draw_boot_time(uint8_t x, uint8_t y)
+{
+    uint64_t boot_ms = AP_HAL::millis64();
+    uint32_t total_seconds = boot_ms / 1000;
+    uint16_t ms = boot_ms % 1000;
+    uint32_t hours = total_seconds / 3600;
+    uint8_t min = (total_seconds / 60) % 60;
+    uint8_t sec = total_seconds % 60;
+    const uint8_t text_length = 13;
+    uint8_t adjusted_x = (x >= text_length - 1) ? x - (text_length - 1) : 0;
+    backend->write(adjusted_x, y, false, "%c%02u:%02u:%02u.%03u", SYMBOL(SYM_CLK),
+                   (uint8_t)(hours % 100), min, sec, ms);
+}
+
 #if HAL_PLUSCODE_ENABLE
 void AP_OSD_Screen::draw_pluscode(uint8_t x, uint8_t y)
 {
@@ -2656,6 +2686,7 @@ void AP_OSD_Screen::draw(void)
     DRAW_SETTING(clk);
 #endif
     DRAW_SETTING(gps_time);
+    DRAW_SETTING(boot_time);
 #if AP_VIDEOTX_ENABLED
     DRAW_SETTING(vtx_power);
 #endif

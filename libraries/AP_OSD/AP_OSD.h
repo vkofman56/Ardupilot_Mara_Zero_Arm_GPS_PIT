@@ -228,6 +228,7 @@ private:
     AP_OSD_Setting current2;
     AP_OSD_Setting clk;
     AP_OSD_Setting gps_time;
+    AP_OSD_Setting boot_time;
     AP_OSD_Setting callsign;
     AP_OSD_Setting vtx_power;
     AP_OSD_Setting hgt_abvterr{false, 23, 7};
@@ -330,6 +331,7 @@ private:
     void draw_bat2used(uint8_t x, uint8_t y);
     void draw_clk(uint8_t x, uint8_t y);
     void draw_gps_time(uint8_t x, uint8_t y);
+    void draw_boot_time(uint8_t x, uint8_t y);
     void draw_callsign(uint8_t x, uint8_t y);
     void draw_current2(uint8_t x, uint8_t y);
     void draw_vtx_power(uint8_t x, uint8_t y);

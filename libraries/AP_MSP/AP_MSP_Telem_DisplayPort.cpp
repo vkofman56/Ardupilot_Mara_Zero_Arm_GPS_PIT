@@ -45,11 +45,13 @@ MSPCommandResult AP_MSP_Telem_DisplayPort::msp_process_out_fc_variant(sbuf_t *ds
     // Identify as BTFL when VTX control is active so the VTX processes our config.
     if (AP::vtx().get_enabled()) {
         use_btfl = true;
-        // HDZero sends MSP_FC_VARIANT on every boot as part of its handshake.
-        // Use this as a trigger to restart the VTX config push cycle so pit mode
-        // is correctly applied even when the VTX powered on after FC boot.
-        _vtx_send_count = 0;
-        GCS_SEND_TEXT(MAV_SEVERITY_INFO, "MSP VTX: HDZero boot detected, re-pushing config");
+        // HDZero sends FC_VARIANT query on boot (after relay powers it on).
+        // Treat it as a re-boot signal: reset the VTX config burst so we
+        // immediately push pitmode config as HDZero comes up.
+        if (_vtx_initialized && _vtx_send_count >= VTX_SEND_REPEATS) {
+            _vtx_send_count = 0;
+            GCS_SEND_TEXT(MAV_SEVERITY_INFO, "MSP VTX: FC_VARIANT query, re-pushing config");
+        }
     }
 #endif
 

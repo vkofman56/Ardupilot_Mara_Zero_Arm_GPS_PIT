@@ -36,9 +36,9 @@ public:
 private:
     uint32_t _vtx_last_send_ms;
     bool _vtx_initialized;
-    uint8_t _vtx_send_count;
+    uint8_t _vtx_send_count;            // how many times we've sent current config
     static const uint32_t VTX_SEND_INTERVAL_MS = 200;
-    static const uint8_t VTX_SEND_REPEATS = 10;
+    static const uint8_t VTX_SEND_REPEATS = 10;   // send config 10 times (~2 seconds) per burst
 #endif
 };
 

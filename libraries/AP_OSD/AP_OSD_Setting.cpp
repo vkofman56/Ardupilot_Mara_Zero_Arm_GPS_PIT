@@ -33,15 +33,15 @@ const AP_Param::GroupInfo AP_OSD_Setting::var_info[] = {
 
     // @Param: _X
     // @DisplayName: X position
-    // @Description: Horizontal position on screen (extended range allows placement in overscan/letterbox areas)
-    // @Range: -10 70
+    // @Description: Horizontal position on screen (extended range allows placement closer to edges)
+    // @Range: 0 70
     // @User: Standard
     AP_GROUPINFO_FLAGS_DEFAULT_POINTER("_X", 2, AP_OSD_Setting, xpos, default_xpos),
 
     // @Param: _Y
     // @DisplayName: Y position
-    // @Description: Vertical position on screen (extended range allows placement in overscan/letterbox areas)
-    // @Range: -10 30
+    // @Description: Vertical position on screen (extended range allows placement closer to edges)
+    // @Range: 0 30
     // @User: Standard
     AP_GROUPINFO_FLAGS_DEFAULT_POINTER("_Y", 3, AP_OSD_Setting, ypos, default_ypos),
 

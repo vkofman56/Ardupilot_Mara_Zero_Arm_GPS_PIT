@@ -727,38 +727,6 @@ const AP_Param::GroupInfo AP_OSD_Screen::var_info[] = {
     // @Range: 0 21
     AP_SUBGROUPINFO(clk, "CLK", 43, AP_OSD_Screen, AP_OSD_Setting),
 
-    // @Param: GPSTIME_EN
-    // @DisplayName: GPSTIME_EN
-    // @Description: Displays GPS time with milliseconds
-    // @Values: 0:Disabled,1:Enabled
-
-    // @Param: GPSTIME_X
-    // @DisplayName: GPSTIME_X
-    // @Description: Horizontal position on screen
-    // @Range: 0 59
-
-    // @Param: GPSTIME_Y
-    // @DisplayName: GPSTIME_Y
-    // @Description: Vertical position on screen
-    // @Range: 0 21
-    AP_SUBGROUPINFO(gps_time, "GPSTIME", 44, AP_OSD_Screen, AP_OSD_Setting),
-
-    // @Param: BOOTTIME_EN
-    // @DisplayName: BOOTTIME_EN
-    // @Description: Displays system uptime (time since boot) with milliseconds
-    // @Values: 0:Disabled,1:Enabled
-
-    // @Param: BOOTTIME_X
-    // @DisplayName: BOOTTIME_X
-    // @Description: Horizontal position on screen
-    // @Range: 0 59
-
-    // @Param: BOOTTIME_Y
-    // @DisplayName: BOOTTIME_Y
-    // @Description: Vertical position on screen
-    // @Range: 0 21
-    AP_SUBGROUPINFO(boot_time, "BOOTTIME", 63, AP_OSD_Screen, AP_OSD_Setting),
-
 #if HAL_OSD_SIDEBAR_ENABLE || HAL_MSP_ENABLED
     // @Param: SIDEBARS_EN
     // @DisplayName: SIDEBARS_EN
@@ -774,7 +742,7 @@ const AP_Param::GroupInfo AP_OSD_Screen::var_info[] = {
     // @DisplayName: SIDEBARS_Y
     // @Description: Vertical position on screen
     // @Range: 0 21
-    AP_SUBGROUPINFO(sidebars, "SIDEBARS", 45, AP_OSD_Screen, AP_OSD_Setting),
+    AP_SUBGROUPINFO(sidebars, "SIDEBARS", 44, AP_OSD_Screen, AP_OSD_Setting),
 #endif
 
 #if HAL_MSP_ENABLED
@@ -792,7 +760,7 @@ const AP_Param::GroupInfo AP_OSD_Screen::var_info[] = {
     // @DisplayName: CRSSHAIR_Y
     // @Description: Vertical position on screen (MSP OSD only)
     // @Range: 0 21
-    AP_SUBGROUPINFO(crosshair, "CRSSHAIR", 46, AP_OSD_Screen, AP_OSD_Setting),
+    AP_SUBGROUPINFO(crosshair, "CRSSHAIR", 45, AP_OSD_Screen, AP_OSD_Setting),
 
     // @Param: HOMEDIST_EN
     // @DisplayName: HOMEDIST_EN
@@ -808,7 +776,7 @@ const AP_Param::GroupInfo AP_OSD_Screen::var_info[] = {
     // @DisplayName: HOMEDIST_Y
     // @Description: Vertical position on screen (MSP OSD only)
     // @Range: 0 21
-    AP_SUBGROUPINFO(home_dist, "HOMEDIST", 47, AP_OSD_Screen, AP_OSD_Setting),
+    AP_SUBGROUPINFO(home_dist, "HOMEDIST", 46, AP_OSD_Screen, AP_OSD_Setting),
 
     // @Param: HOMEDIR_EN
     // @DisplayName: HOMEDIR_EN
@@ -824,7 +792,7 @@ const AP_Param::GroupInfo AP_OSD_Screen::var_info[] = {
     // @DisplayName: HOMEDIR_Y
     // @Description: Vertical position on screen
     // @Range: 0 21
-    AP_SUBGROUPINFO(home_dir, "HOMEDIR", 48, AP_OSD_Screen, AP_OSD_Setting),
+    AP_SUBGROUPINFO(home_dir, "HOMEDIR", 47, AP_OSD_Screen, AP_OSD_Setting),
 
     // @Param: POWER_EN
     // @DisplayName: POWER_EN
@@ -840,7 +808,7 @@ const AP_Param::GroupInfo AP_OSD_Screen::var_info[] = {
     // @DisplayName: POWER_Y
     // @Description: Vertical position on screen
     // @Range: 0 21
-    AP_SUBGROUPINFO(power, "POWER", 49, AP_OSD_Screen, AP_OSD_Setting),
+    AP_SUBGROUPINFO(power, "POWER", 48, AP_OSD_Screen, AP_OSD_Setting),
 
     // @Param: CELLVOLT_EN
     // @DisplayName: CELL_VOLT_EN
@@ -1205,6 +1173,9 @@ const AP_Param::GroupInfo AP_OSD_Screen::var_info2[] = {
     // @Range: 0 32
     AP_GROUPINFO("ESC_IDX", 10, AP_OSD_Screen, esc_index, 0),
 #endif
+
+    AP_SUBGROUPINFO(gps_time, "GPSTIME", 11, AP_OSD_Screen, AP_OSD_Setting),
+    AP_SUBGROUPINFO(boot_time, "BOOTTIME", 12, AP_OSD_Screen, AP_OSD_Setting),
 
     AP_GROUPEND
 };

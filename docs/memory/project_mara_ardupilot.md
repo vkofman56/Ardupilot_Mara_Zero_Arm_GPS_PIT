@@ -34,6 +34,10 @@ PATH=~/arm-gnu-toolchain-13.3/bin:$PATH ./waf copter
 - MAVLink attitude timestamp filtering
 - MSP VTX type added
 
-**GitHub backup:** https://github.com/vkofman56/Ardupilot_Mara_Zero_Arm_GPS_PIT
+**GitHub (single source of truth):** https://github.com/vkofman56/Ardupilot_Mara_Zero_Arm_GPS_PIT
+- Contains only custom-modified files + PROJECT_NOTES.md + README.md + docs/memory/
+- Full ArduPilot source stays local only (too large for GitHub)
 
-**Cleanup done:** `Ardupilot_MARA_2` deleted. No pending cleanup tasks.
+**Other GitHub repos** (`vkofman56/MARA_Zero_Arm`, `vkofman56/ardupilot`): pending archive/delete — nothing there not already in GPS_PIT or local.
+
+**Cleanup done:** `Ardupilot_MARA_2` deleted. GPS_PIT is now the one remote repo.

@@ -37,9 +37,11 @@ Custom ArduPilot 4.7.0-dev firmware for FPV flight controllers. All source lives
 
 ## Open tasks
 
-- No active tasks. Board rebuilds are not a current priority.
+- Archive/delete `vkofman56/MARA_Zero_Arm` and `vkofman56/ardupilot` GitHub repos (safe — nothing there not in GPS_PIT or local)
+- Board rebuilds not a current priority
 
 ## Cleanup done
 
 - Deleted `Ardupilot_MARA_2` folder ✅
 - Deleted old duplicate repos (`Ardupilot_MARA`, `ardupilot-4.7.0-dev`, zip backup) ✅
+- Consolidated GitHub to single repo `Ardupilot_Mara_Zero_Arm_GPS_PIT` ✅
